@@ -29,7 +29,7 @@ int main()
     int index, n, x = 4;
     int arr[] = {1,2,3,4,5};
     n = sizeof(arr)/sizeof(arr[0]);
-    index = ternarySearch(arr, 0, n, x);
+    index = ternarySearch<int>(arr, 0, n, x);
     (index == -1) ? cout << "Element is not present in array"
 				: cout << "Element is present at index " << index; 
 }
