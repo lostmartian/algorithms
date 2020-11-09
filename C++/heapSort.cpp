@@ -3,7 +3,7 @@ using namespace std;
 // in heap array 0th index stores the number of element in the heap
 
 // function for adjusting element in upward direction
-void upadjust(int *heap, int i){
+void upAdjust(int *heap, int i){
     int temp;
     // if given element is at index i then its parent will be at i/2
     // i/2 < 0 then its not a valid parent 
@@ -21,7 +21,7 @@ void upadjust(int *heap, int i){
 }
 
 // function for adjusting element in downward direction
-void downadjust(int *heap)
+void downAdjust(int *heap)
 {
     int n = heap[0], i=1, temp, j;
     // if parent index is i then its left child will be at index i*2 
@@ -54,7 +54,7 @@ void remove(int *heap){
     heap[1]=heap[heap[0]];
     heap[heap[0]] = temp; 
     heap[0]--;
-    downadjust(heap);
+    downAdjust(heap);
 }
 
 // insert element at last index of heap
@@ -62,11 +62,11 @@ void insert(int *heap, int x){
     int n = heap[0];
     heap[n+1] = x;
     heap[0]++;
-    upadjust(heap, n+1);
+    upAdjust(heap, n+1);
 }
 
 
-void heap_sort(int *heap, int n){
+void heapSort(int *heap, int n){
     for(int i=1; i<n ;i++){
         remove(heap);
     }
@@ -87,7 +87,7 @@ int main(){
         insert(heap,x);
     }
 
-    heap_sort(heap,n);
+    heapSort(heap,n);
 
     // print heap
     for(int i=1;i<=n;i++){
